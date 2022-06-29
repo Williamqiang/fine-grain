@@ -47,7 +47,7 @@ image = Image.open(requests.get(url, stream=True).raw)
 image = processor(images=image, return_tensors="pt")
 
 v_outputs = ViT(**image)
-last_hidden_state = v_outputs.last_hidden_state
+v_all_hidden_states = v_outputs.hidden_states
 
 t_outputs = bert(**text)
-last_hidden_state = t_outputs.last_hidden_state
+t_all_hidden_states = t_outputs.hidden_states
